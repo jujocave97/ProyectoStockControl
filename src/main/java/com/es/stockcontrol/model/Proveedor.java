@@ -12,10 +12,10 @@ public class Proveedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre", unique = true, nullable = false, length = 50)
     private String nombre;
 
-    @Column(name = "direccion")
+    @Column(name = "direccion", nullable = false)
     private String direccion;
 
     @OneToMany(mappedBy = "proveedor")
