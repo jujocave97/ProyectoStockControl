@@ -1,7 +1,7 @@
 # Aplicacion STOCK CONTROL
 ## Enunciado
 
-En esta ejercicio práctico vas a realizar la implementación de una aplicación de gestión de Stock donde aplicamos todas las técnicas de separación de responsabilidades que hemos visto hasta ahora.
+En este ejercicio práctico vas a realizar la implementación de una aplicación de gestión de Stock donde aplicamos todas las técnicas de separación de responsabilidades que hemos visto hasta ahora.
 
 Esta práctica se va a realizar por parejas.
 
