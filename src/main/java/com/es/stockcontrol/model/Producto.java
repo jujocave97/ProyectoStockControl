@@ -11,19 +11,19 @@ public class Producto {
     @Id
     private String id;
 
-    @Column(name = "categoria")
+    @Column(name = "categoria",nullable = false, length = 10)
     private String categoria;
 
-    @Column(name = "nombre")
+    @Column(name = "nombre",nullable = false, length = 50 )
     private String nombre;
 
     @Column(name = "descripcion")
     private String descripcion;
 
-    @Column(name = "precioSinIva")
+    @Column(name = "precioSinIva", nullable = false)
     private float precioSinIva;
 
-    @Column(name = "precioConIva")
+    @Column(name = "precioConIva",nullable = false)
     private float precioConIva;
 
     @Column(name="fechaAlta")
@@ -32,7 +32,7 @@ public class Producto {
     @Column(name = "stock")
     private int stock;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY)
     @JoinColumn(name = "proveedor_id")
     private Proveedor proveedor;
 
