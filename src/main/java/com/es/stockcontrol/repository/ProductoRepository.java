@@ -18,9 +18,7 @@ public class ProductoRepository{
     }
 
     public Producto getProducto(String id) {
-        this.entityManager.getTransaction().begin();
         Producto productoBusqueda = this.entityManager.find(Producto.class,id);
-        this.entityManager.close();
         return productoBusqueda;
     }
 
@@ -49,17 +47,13 @@ public class ProductoRepository{
     }
 
     public List<Producto> getProductosConStock() {
-        this.entityManager.getTransaction().begin();
         String jpql = "SELECT p FROM Producto p WHERE p.stock =! 0";
         TypedQuery<Producto> query = this.entityManager.createQuery(jpql, Producto.class);
-        this.entityManager.close();
         return query.getResultList();
     }
     public List<Producto> getProductosSinStock() {
-        this.entityManager.getTransaction().begin();
         String jpql = "SELECT p FROM Producto p WHERE p.stock = 0";
         TypedQuery<Producto> query = this.entityManager.createQuery(jpql, Producto.class);
-        this.entityManager.close();
         return query.getResultList();
     }
 
