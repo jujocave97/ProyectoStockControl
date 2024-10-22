@@ -18,7 +18,7 @@ public class Proveedor {
     @Column(name = "direccion", nullable = false)
     private String direccion;
 
-    @OneToMany(mappedBy = "proveedor")
+    @OneToMany(mappedBy = "proveedor", fetch = FetchType.LAZY)
     private Set<Producto> productos;
 
     public Proveedor(){
