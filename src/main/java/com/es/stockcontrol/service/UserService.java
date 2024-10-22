@@ -23,12 +23,16 @@ public class UserService {
     }
 
     public User userLogin(String nombre, String pass){
-        User u = userRepository.get(nombre);
-        String passEncrypted = Encrypter.encryptPassword(pass);
+        try{
+            User u = userRepository.get(nombre);
+            String passEncrypted = Encrypter.encryptPassword(pass);
 
-        if (u.getNombre().equals(nombre) && u.getPassword().equals(passEncrypted))
-            return u;
-
-        return null;
+            if (u.getNombre().equals(nombre) && u.getPassword().equals(passEncrypted))
+                return u;
+            else
+                return null;
+        }catch (Exception e){
+            return null;
+        }
     }
 }
