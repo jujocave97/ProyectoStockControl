@@ -23,11 +23,25 @@ public class UserRepository {
 
 
     public User get(String nombre){
-        return em.find(User.class,nombre);
+        try {
+            em.getTransaction().begin();
+            User u = em.find(User.class, nombre);
+            em.close();
+            return u;
+        }catch (Exception e){
+            return null;
+        }
     }
 
     public List<User> getAll(){
-        TypedQuery<User> query=  em.createQuery("SELECT * FROM usuarios",User.class);
-        return query.getResultList();
+        try{
+            em.getTransaction().begin();
+            TypedQuery<User> query=  em.createQuery("SELECT * FROM usuarios",User.class);
+            List<User> listUsers = query.getResultList();
+            em.close();
+            return listUsers;
+        }catch (Exception e){
+            return null;
+        }
     }
 }
