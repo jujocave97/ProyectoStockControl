@@ -57,11 +57,16 @@ public class ProductoRepository{
         return query.getResultList();
     }
 
-    public void eliminarProducto(String id){
-        this.entityManager.getTransaction().begin();
-        this.entityManager.remove(getProducto(id));
-        this.entityManager.getTransaction().commit();
-        this.entityManager.close();
+    public boolean eliminarProducto(String id){
+        if(getProducto(id) != null){
+            this.entityManager.getTransaction().begin();
+            this.entityManager.remove(getProducto(id));
+            this.entityManager.getTransaction().commit();
+            this.entityManager.close();
+            return true;
+        }else{
+            return false;
+        }
 
     }
 
