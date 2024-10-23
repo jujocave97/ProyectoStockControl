@@ -3,6 +3,7 @@ package com.es.stockcontrol.service;
 import com.es.stockcontrol.model.User;
 import com.es.stockcontrol.repository.UserRepository;
 import com.es.stockcontrol.utils.Encrypter;
+import com.es.stockcontrol.utils.Factory;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -10,10 +11,13 @@ import jakarta.persistence.Persistence;
 public class UserService {
     private UserRepository userRepository;
 
-    public UserService(EntityManager em){
-        this.userRepository = new UserRepository(em);
+    public UserService(){
+        this.userRepository = new UserRepository(createEntityManager());
     }
 
+    public EntityManager createEntityManager(){
+        return Factory.crearEMFactory().createEntityManager();
+    }
     public UserRepository getUserRepository() {
         return userRepository;
     }

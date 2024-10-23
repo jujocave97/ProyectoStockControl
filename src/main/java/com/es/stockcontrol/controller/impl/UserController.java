@@ -14,13 +14,9 @@ public class UserController implements UserControllerAPI {
     private UserService userService;
 // TODO : Los services, meter el entity manager en cada service (clase static factory para el manager), y los controllers
     public UserController(){
-        this.userService = createUserService();
+        this.userService = new UserService();
     }
 
-    public UserService createUserService (){
-        EntityManager em = Factory.crearEMFactory().createEntityManager();
-        return new UserService(em);
-    }
 
     @Override
     public RespuestaHTTP<User> login(String userInput, String passInput) {
