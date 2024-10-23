@@ -58,6 +58,7 @@ public class ProductoRepository{
     }
 
     public boolean eliminarProducto(String id){
+        Producto p = null;
         if(getProducto(id) != null){
             this.entityManager.getTransaction().begin();
             this.entityManager.remove(getProducto(id));
