@@ -20,7 +20,15 @@ public class UserController implements UserControllerAPI {
 
     @Override
     public RespuestaHTTP<User> login(String userInput, String passInput) {
+        try{
+            User u = this.userService.userLogin(userInput,passInput);
+            return u != null ?
+                    new RespuestaHTTP<User>(200, "OK", u) :
+                    new RespuestaHTTP<User>(404, "BAD REQUEST", null);
 
-        return null;
+        }catch (Exception e){
+            return new RespuestaHTTP<User>(500, "SERVER ERROR", null);
+        }
+
     }
 }
