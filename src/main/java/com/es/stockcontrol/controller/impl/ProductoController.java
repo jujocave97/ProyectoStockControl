@@ -15,7 +15,7 @@ public class ProductoController implements ProductoControllerAPI {
     }
 
     @Override
-    public RespuestaHTTP<Producto> altaProducto(String idProducto, String nombreProducto, String precioSinIva, String descripcionProducto, String nombreProveedor, String direccionProveedor) {
+    public RespuestaHTTP<Producto> altaProducto(String categoria, String nombreProducto, String precioSinIva, String descripcionProducto, String nombreProveedor, String direccionProveedor) {
 
         return null;
     }
