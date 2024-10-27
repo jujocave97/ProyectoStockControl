@@ -26,7 +26,6 @@ public class ProductoRepository{
         this.entityManager.getTransaction().begin();
         this.entityManager.persist(newProducto);
         this.entityManager.getTransaction().commit();
-        this.entityManager.close();
         return getProducto(newProducto.getId());
     }
 

@@ -22,6 +22,7 @@ public class ProductoController implements ProductoControllerAPI {
                     new RespuestaHTTP<>(200,"OK",producto) :
                     new RespuestaHTTP<>(404, "NOT FOUND", producto);
         }catch (Exception e){
+            e.printStackTrace();
             return  new RespuestaHTTP<>(500,"SERVER ERROR", null);
         }
     }

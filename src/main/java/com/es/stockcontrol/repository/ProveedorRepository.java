@@ -21,14 +21,15 @@ public class ProveedorRepository {
     }
 
     public List<Proveedor> getTodosProveedores(){
-        String jpql = "SELECT * FROM proveedores";
+        String jpql = "FROM Proveedor";
         TypedQuery<Proveedor> query = this.entityManager.createQuery(jpql, Proveedor.class);
         return query.getResultList();
     }
 
     public Proveedor getByNombre(String nombreProveedor){
-        String jpql = "SELECT * FROM proveedores WHERE nombre = :nombreProveedor";
+        String jpql = "FROM Proveedor WHERE nombre = :nombreProveedor";
         TypedQuery<Proveedor> query = this.entityManager.createQuery(jpql,Proveedor.class);
+        query.setParameter("nombreProveedor",nombreProveedor);
         return query.getSingleResult();
     }
 
