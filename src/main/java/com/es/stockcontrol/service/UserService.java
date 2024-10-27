@@ -29,9 +29,9 @@ public class UserService {
     public User userLogin(String nombre, String pass){
         try{
             User u = userRepository.get(nombre);
-            String passEncrypted = Encrypter.encryptPassword(pass);
+            //String passEncrypted = Encrypter.encryptPassword(pass);
 
-            if (u.getNombre().equals(nombre) && u.getPassword().equals(passEncrypted))
+            if (u.getNombre().equals(nombre) && u.getPassword().equals(pass))
                 return u;
             else
                 return null;
