@@ -14,7 +14,7 @@ public class ProveedorRepository {
     }
 
     public List<Proveedor> getProveedoresProducto(String idProducto){
-        String jpql = "SELECT p FROM Proveedor p WHERE p.producto.id = :productoId";
+        String jpql = "SELECT p FROM Proveedor p JOIN p.productos pr WHERE pr.id = :productoId";
         TypedQuery<Proveedor> query = this.entityManager.createQuery(jpql, Proveedor.class);
         query.setParameter("productoId",idProducto);
         return query.getResultList();

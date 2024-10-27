@@ -46,7 +46,7 @@ public class ProductoRepository{
     }
 
     public List<Producto> getProductosConStock() {
-        String jpql = "SELECT p FROM Producto p WHERE p.stock =! 0";
+        String jpql = "SELECT p FROM Producto p WHERE p.stock != 0";
         TypedQuery<Producto> query = this.entityManager.createQuery(jpql, Producto.class);
         return query.getResultList();
     }

@@ -69,7 +69,7 @@ public class Proveedor {
                 "id=" + id +
                 ", nombre='" + nombre + '\'' +
                 ", direccion='" + direccion + '\'' +
-                ", productos=" + productos +
+                ", productos=" + productos.toString() +
                 '}';
     }
 }

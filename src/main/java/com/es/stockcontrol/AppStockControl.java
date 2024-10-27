@@ -249,8 +249,8 @@ public class AppStockControl {
         RespuestaHTTP<Producto> respuesta = productoController.getProducto(idProducto);
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
-            System.out.printf("OPERACION EXITOSA");
-            respuesta.getObj().toString();
+            System.out.println("OPERACION EXITOSA");
+            System.out.println(respuesta.getObj().toString());
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());
         }
@@ -264,9 +264,9 @@ public class AppStockControl {
         RespuestaHTTP<List<Producto>> respuesta = productoController.getProductosConStock();
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
-            System.out.printf("OPERACION EXITOSA");
+            System.out.println("OPERACION EXITOSA");
             respuesta.getObj().forEach(producto -> {
-                producto.toString();
+                System.out.println(producto.toString());
             });
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());
@@ -282,9 +282,9 @@ public class AppStockControl {
         RespuestaHTTP<List<Producto>> respuesta = productoController.getProductosSinStock();
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
-            System.out.printf("OPERACION EXITOSA");
+            System.out.println("OPERACION EXITOSA");
             respuesta.getObj().forEach(producto -> {
-                producto.toString();
+                System.out.println(producto.toString());
             });
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());
@@ -301,9 +301,9 @@ public class AppStockControl {
         RespuestaHTTP<List<Proveedor>> respuesta = proveedorController.getProveedoresProducto(idProducto);
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
-            System.out.printf("OPERACION EXITOSA");
+            System.out.println("OPERACION EXITOSA");
             respuesta.getObj().forEach(proveedor -> {
-                proveedor.toString();
+                System.out.println(proveedor.toString());
             });
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());
@@ -319,10 +319,10 @@ public class AppStockControl {
         RespuestaHTTP<List<Proveedor>> respuesta = proveedorController.getTodosProveedores();
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
-            System.out.printf("OPERACION EXITOSA");
+            System.out.println("OPERACION EXITOSA");
 
             respuesta.getObj().forEach(proveedor -> {
-                proveedor.toString();
+                System.out.println(proveedor.toString());
             });
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());

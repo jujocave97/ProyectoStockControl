@@ -128,15 +128,15 @@ public class Producto {
     @Override
     public String toString() {
         return "Producto{" +
-                "id='" + id + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", nombre='" + nombre + '\'' +
-                ", descripcion='" + descripcion + '\'' +
-                ", precioSinIva=" + precioSinIva +
-                ", precioConIva=" + precioConIva +
-                ", fechaAlta=" + fechaAlta +
-                ", stock=" + stock +
-                ", proveedor=" + proveedor +
+                "id='" + getId() + '\'' +
+                ", categoria='" + getCategoria() + '\'' +
+                ", nombre='" + getNombre() + '\'' +
+                ", descripcion='" + getDescripcion() + '\'' +
+                ", precioSinIva=" + getPrecioSinIva() +
+                ", precioConIva=" + getPrecioConIva() +
+                ", fechaAlta=" + getFechaAlta().toString() +
+                ", stock=" + getStock() +
+                ", proveedor=" + getProveedor().getId() +
                 '}';
     }
 }
