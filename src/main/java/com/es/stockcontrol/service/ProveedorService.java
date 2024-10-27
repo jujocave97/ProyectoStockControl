@@ -20,4 +20,8 @@ public class ProveedorService {
     public List<Proveedor> getTodosProveedores(){
         return pr.getTodosProveedores();
     }
+
+    public Proveedor getByNombre(String nombre){
+        return pr.getByNombre(nombre);
+    }
 }

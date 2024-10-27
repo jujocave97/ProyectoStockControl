@@ -40,4 +40,17 @@ public class ProveedorController implements ProveedorControllerAPI {
             return new RespuestaHTTP<List<Proveedor>>(500, "SERVER ERROR", null);
         }
     }
+
+    public RespuestaHTTP<Proveedor> getByNombre(String nombre) {
+        try{
+            Proveedor prov = this.proveedorService.getByNombre(nombre);
+            return prov != null ?
+                    new RespuestaHTTP<Proveedor>(200, "OK", prov) :
+                    new RespuestaHTTP<Proveedor>(404, "BAD REQUEST", prov);
+
+        }catch (Exception e){
+            return new RespuestaHTTP<Proveedor>(500, "SERVER ERROR", null);
+        }
+    }
+
 }

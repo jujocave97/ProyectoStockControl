@@ -41,7 +41,7 @@ public class Producto {
 
     }
 
-    public Producto(String id, String nombre, String categoria, String descripcion, float precioSinIva, float precioConIva, Date fechaAlta, int stock){
+    public Producto(String id, String nombre, String categoria, String descripcion, float precioSinIva, float precioConIva, Date fechaAlta, int stock, Proveedor proveedor){
         this.id = id;
         this.categoria = categoria;
         this.nombre = nombre;
@@ -50,6 +50,7 @@ public class Producto {
         this.precioSinIva = precioSinIva;
         this.fechaAlta = fechaAlta;
         this.stock = stock;
+        this.proveedor = proveedor;
     }
 
     public String getId() {

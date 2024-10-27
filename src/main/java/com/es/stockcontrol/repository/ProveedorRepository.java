@@ -26,5 +26,10 @@ public class ProveedorRepository {
         return query.getResultList();
     }
 
+    public Proveedor getByNombre(String nombreProveedor){
+        String jpql = "SELECT * FROM proveedores WHERE nombre = :nombreProveedor";
+        TypedQuery<Proveedor> query = this.entityManager.createQuery(jpql,Proveedor.class);
+        return query.getSingleResult();
+    }
 
 }

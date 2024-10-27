@@ -3,6 +3,7 @@ package com.es.stockcontrol.service;
 import com.es.stockcontrol.model.Producto;
 import com.es.stockcontrol.model.Proveedor;
 import com.es.stockcontrol.repository.ProductoRepository;
+import com.es.stockcontrol.repository.ProveedorRepository;
 import com.es.stockcontrol.utils.Factory;
 import jakarta.persistence.EntityManager;
 
@@ -14,10 +15,12 @@ import java.util.List;
 public class ProductoService {
     ProductoRepository productoRepository;
     EntityManager em;
+    ProveedorRepository proveedorRepository;
 
     public ProductoService(){
         EntityManager em = Factory.crearEMFactory().createEntityManager();
         productoRepository = new ProductoRepository(em);
+        proveedorRepository = new ProveedorRepository(em);
     }
 
     public Producto insertProducto(String categoria, String nombreProducto, String precioSinIva, String descripcionProducto, String nombreProveedor){
@@ -25,7 +28,8 @@ public class ProductoService {
         Date fechaAlta =  new Date();
         float precioConIva = (float) ((Float.parseFloat(precioSinIva) * 0.21) + Float.parseFloat(precioSinIva));
         int stock = 0;
-        Producto producto = new Producto(idProducto,nombreProducto,categoria, descripcionProducto, Float.parseFloat(precioSinIva), precioConIva, fechaAlta, stock);
+        Proveedor proveedor = proveedorRepository.getByNombre(nombreProveedor);
+        Producto producto = new Producto(idProducto,nombreProducto,categoria, descripcionProducto, Float.parseFloat(precioSinIva), precioConIva, fechaAlta, stock, proveedor);
         return  this.productoRepository.insertProducto(producto);
     }
 
