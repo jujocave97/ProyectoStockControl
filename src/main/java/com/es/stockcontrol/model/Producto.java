@@ -41,7 +41,8 @@ public class Producto {
 
     }
 
-    public Producto(String nombre, String categoria, String descripcion, float precioSinIva, float precioConIva, Date fechaAlta, int stock){
+    public Producto(String id, String nombre, String categoria, String descripcion, float precioSinIva, float precioConIva, Date fechaAlta, int stock){
+        this.id = id;
         this.categoria = categoria;
         this.nombre = nombre;
         this.descripcion = descripcion;

@@ -6,6 +6,9 @@ import com.es.stockcontrol.repository.ProductoRepository;
 import com.es.stockcontrol.utils.Factory;
 import jakarta.persistence.EntityManager;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import java.util.List;
 
 public class ProductoService {
@@ -17,8 +20,13 @@ public class ProductoService {
         productoRepository = new ProductoRepository(em);
     }
 
-    public Producto insertProducto(String idProducto, String nombreProducto, String precioSinIva, String descripcionProducto, String nombreProveedor, String direccionProveedor){
-        return null;
+    public Producto insertProducto(String categoria, String nombreProducto, String precioSinIva, String descripcionProducto, String nombreProveedor){
+        String idProducto =  categoria.substring(0,3) + nombreProducto.substring(0,3) + nombreProveedor.substring(0,3);
+        Date fechaAlta =  new Date();
+        float precioConIva = (float) ((Float.parseFloat(precioSinIva) * 0.21) + Float.parseFloat(precioSinIva));
+        int stock = 0;
+        Producto producto = new Producto(idProducto,nombreProducto,categoria, descripcionProducto, Float.parseFloat(precioSinIva), precioConIva, fechaAlta, stock);
+        return  this.productoRepository.insertProducto(producto);
     }
 
     public boolean deleteProducto(String id){

@@ -176,17 +176,14 @@ public class AppStockControl {
         System.out.println("DETALLES PROVEEDOR");
         System.out.print("nombre: ");
         String nombreProveedor = scan.nextLine();
-        System.out.print("direccion: ");
-        String direccionProveedor = scan.nextLine();
 
-        RespuestaHTTP<Producto> respuesta = productoController.altaProducto(categoriaProducto, nombreProducto, precioSinIva, descripcionProducto, nombreProveedor, direccionProveedor);
+        RespuestaHTTP<Producto> respuesta = productoController.altaProducto(categoriaProducto, nombreProducto, precioSinIva, descripcionProducto, nombreProveedor);
 
         if (respuesta != null && respuesta.getCodigo() == 200) {
             System.out.printf("PRODUCTO INSERTADO CORRECTAMENTE\n%s", respuesta.getObj().toString());
         } else {
             System.out.printf("Error en la operacion\n\t-codigo %d\n\t-%s\n", respuesta.getCodigo(), respuesta.getMensaje());
         }
-
 
     }
 
