@@ -1,1 +1,0 @@
-1 . ¿ En el controler de producto, al insertar un producto no se le pasa la categoria? como se le añade la propiedad categoria
